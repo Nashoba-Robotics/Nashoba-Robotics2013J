@@ -1,0 +1,7 @@
+*.class
+build/*
+*.properties
+*.xml
+nbproject/*
+resources/*
+__MACOSX/*
