@@ -5,3 +5,5 @@ build/*
 nbproject/*
 resources/*
 __MACOSX/*
+/Nashoba-Robotics2013J/build/
+.DS_STORE
