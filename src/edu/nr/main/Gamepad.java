@@ -1,18 +1,17 @@
 package edu.nr.main;
 
 import edu.wpi.first.wpilibj.Joystick;
-import com.sun.squawk.util.SquawkHashtable;
 
+/**
+ * Gamepad
+ * 
+ * An extension of the Joystick class that works with the Logitech F-310 gamepad
+ */
 public class Gamepad extends Joystick
 {
     Gamepad(int port) {
         super(port);
-        makeMaps();
     }
-    public SquawkHashtable stickType = new SquawkHashtable();
-    public SquawkHashtable axisType = new SquawkHashtable();
-    public SquawkHashtable buttonType = new SquawkHashtable();
-    
     public final int kLeftStick = 1;
     public final int kRightStick = 2;
     
@@ -35,60 +34,112 @@ public class Gamepad extends Joystick
     public final int kStartButton= 10;
     public final int kLeftStickButton= 11;
     public final int kRightStickButton= 12;
-        
-    void makeMaps() {
-        // Stick types
-        stickType.put("kLeftStick", new Integer(kLeftStick));
-        stickType.put("kRightStick", new Integer(kRightStick));
-        
-        // Axis types
-        axisType.put("kLeftXAxis", new Integer(kLeftXAxis));
-        axisType.put("kLeftYAxis", new Integer(kLeftYAxis));
-        axisType.put("kRightXAxis", new Integer(kRightXAxis));
-        axisType.put("kRightYAxis", new Integer(kRightYAxis));
-        axisType.put("kDPadXAxis", new Integer(kDPadXAxis));
-        axisType.put("kDPadYAxis", new Integer(kDPadYAxis));
-        
-        // Button types
-        buttonType.put("kXButton", new Integer(kXButton));
-        buttonType.put("kAButton", new Integer(kYButton));
-        buttonType.put("kBButton", new Integer(kBButton));
-        buttonType.put("kYButton", new Integer(kYButton));
-        buttonType.put("kLeftBumper", new Integer(kLeftBumper));
-        buttonType.put("kRightBumper", new Integer(kRightBumper));
-        buttonType.put("kLeftTrigger", new Integer(kLeftTrigger));
-        buttonType.put("kRightTrigger", new Integer(kRightTrigger));
-        buttonType.put("kBackButton", new Integer(kBackButton));
-        buttonType.put("kStartButton", new Integer(kStartButton));
-        buttonType.put("kLeftStickButton", new Integer(kLeftStickButton));
-        buttonType.put("kRightStickButton", new Integer(kRightStickButton));
-    }
-    
+
+    /**
+     * Get the x axis value from the desired joystick on the gamepad
+     * 
+     * @param stick The joystick that the x axis value is being read from
+     * @return The x axis value on the specified joystick
+     */
     double getX(String stick) {
-        Object value = axisType.get(stick);
-        if(value.equals(new Integer(kLeftStick))) {
+        if( stick.equalsIgnoreCase("left") ) {
             return getRawAxis(kLeftXAxis);
         }
-        else if(value.equals(new Integer(kRightStick))) {
+        else if( stick.equalsIgnoreCase("right") ) {
             return getRawAxis(kRightXAxis);
         }
-        else
+        else {
             return 0.0;
+        }
     }
     
+    /**
+     * Get the y axis value from the desired joystick on the gamepad
+     * 
+     * @param stick The joystick that the y axis value is being read from
+     * @return The y axis value on the specified joystick
+     */
     double getY(String stick) {
-        Object value = axisType.get(stick);
-        if(value.equals(new Integer(kLeftStick))) {
+        if( stick.equalsIgnoreCase("left") ) {
             return getRawAxis(kLeftYAxis);
         }
-        else if(value.equals(new Integer(kRightStick))) {
+        else if( stick.equalsIgnoreCase("right") ) {
             return getRawAxis(kRightYAxis);
         }
-        else
+        else {
             return 0.0;
+        }
     }
     
-    double getAxis(String axis){
-        return 0.0;
+    /**
+     * Gets the value of the specified axis
+     * 
+     * @param axis The name of the axis you want to get the value of
+     * @return The value reading of the desired axis
+     */
+    double getAxis(String axis) {
+        if( axis.equalsIgnoreCase("left x") ) {
+            return getRawAxis(kLeftXAxis);
+        }
+        else if( axis.equalsIgnoreCase("right x") ) {
+            return getRawAxis(kRightXAxis);
+        }
+        else if( axis.equalsIgnoreCase("left y") ) {
+            return getRawAxis(kLeftYAxis);
+        }
+        else if( axis.equalsIgnoreCase("right y") ) {
+            return getRawAxis(kRightYAxis);
+        }
+        else {
+            return 0.0;
+        }
+    }
+    
+    /**
+     * Checks the state of the desired button
+     * 
+     * @param button The button name that you want to check
+     * @return Whether the specified button is being pressed
+     */
+    boolean getButton(String button) {
+        if( button.equalsIgnoreCase("x") ) {
+            return getRawButton(kXButton);
+        }
+        else if(button.equalsIgnoreCase("y") ) {
+            return getRawButton(kYButton);
+        }
+        else if(button.equalsIgnoreCase("a") ) {
+            return getRawButton(kAButton);
+        }
+        else if(button.equalsIgnoreCase("b") ) {
+            return getRawButton(kBButton);
+        }
+        else if(button.equalsIgnoreCase("left bumper") ) {
+            return getRawButton(kLeftBumper);
+        }
+        else if(button.equalsIgnoreCase("right bumper") ) {
+            return getRawButton(kRightBumper);
+        }
+        else if(button.equalsIgnoreCase("left trigger") ) {
+            return getRawButton(kLeftTrigger);
+        }
+        else if(button.equalsIgnoreCase("right trigger") ) {
+            return getRawButton(kRightTrigger);
+        }
+        else if(button.equalsIgnoreCase("back") ) {
+            return getRawButton(kBackButton);
+        }
+        else if(button.equalsIgnoreCase("start") ) {
+            return getRawButton(kStartButton);
+        }
+        else if(button.equalsIgnoreCase("left stick") ) {
+            return getRawButton(kLeftStickButton);
+        }
+        else if(button.equalsIgnoreCase("right stick") ) {
+            return getRawButton(kRightStickButton);
+        }
+        else {
+            return false;
+        }
     }
 }
