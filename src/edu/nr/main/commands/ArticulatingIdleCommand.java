@@ -10,6 +10,8 @@
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.nr.main.Robot;
+import edu.nr.main.RobotMap;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 /**
  *
  */
@@ -27,6 +29,12 @@ public class  ArticulatingIdleCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        try {
+            RobotMap.articulatingArmArticulatingCANJaguar.setX(0.0);
+        } catch (CANTimeoutException e) {
+            System.err.println("Exception caught while stopping jag: "
+                    + e.getMessage());
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
