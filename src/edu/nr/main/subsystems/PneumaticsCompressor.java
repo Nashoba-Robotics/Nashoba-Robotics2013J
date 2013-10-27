@@ -47,7 +47,12 @@ public class PneumaticsCompressor extends Subsystem
     
     public void setCompressor(boolean value)
     {
-	compressorRelay.set((value)?Relay.Value.kOn:Relay.Value.kOff);
+        if(value) {
+            compressorRelay.set(Relay.Value.kOn);
+        }    
+        else {
+            compressorRelay.set(Relay.Value.kOff);
+        }    
     }
     
     public boolean pressureIsFull()

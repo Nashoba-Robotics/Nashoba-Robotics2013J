@@ -11,7 +11,6 @@ package edu.nr.main.subsystems;
 import edu.nr.main.commands.TrackIdleCommand;
 import edu.nr.main.RobotMap;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.Encoder.PIDSourceParameter;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
@@ -39,13 +38,18 @@ public class Track extends Subsystem
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void drive(double speed)
-    {
+    public void drive(double speed) {
 	speedController1.set(speed);
 	speedController2.set(speed);
     }    
-    public void setBrakes(boolean value)
-    {
-	brakeSolenoid.set(!value);
+    
+    public void brake() {
+	brakeSolenoid.set(true);
     }
+    
+    public void stop() {
+        drive(0.0);
+        brake();
+    }
+            
 }

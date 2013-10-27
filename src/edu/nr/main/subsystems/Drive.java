@@ -11,7 +11,6 @@ package edu.nr.main.subsystems;
 import edu.nr.main.commands.DriveDriveCommand;
 import edu.nr.main.RobotMap;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *

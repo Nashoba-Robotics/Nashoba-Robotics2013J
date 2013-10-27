@@ -9,7 +9,6 @@
 // it from being updated in th future.
 package edu.nr.main.subsystems;
 import edu.nr.main.commands.FixedIdleCommand;
-import edu.nr.main.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
