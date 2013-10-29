@@ -14,7 +14,12 @@ import edu.nr.main.Robot;
  *
  */
 public class  DriveRotateCommand extends Command {
-    public DriveRotateCommand() {
+    float m_deltaAngle;
+    float m_initialAngle;
+    float m_speed;
+    public DriveRotateCommand(float speed, float angle) {
+        m_speed = speed;
+        m_deltaAngle = angle;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -24,13 +29,16 @@ public class  DriveRotateCommand extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+                m_initialAngle = (float) Robot.drive.getGyroAngle();
+
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.drive.driveMecanum(0, 0, m_speed);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (Robot.drive.getGyroAngle() >= m_initialAngle + m_deltaAngle);
     }
     // Called once after isFinished returns true
     protected void end() {

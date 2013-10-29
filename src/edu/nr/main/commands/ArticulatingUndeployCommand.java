@@ -10,6 +10,8 @@
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.nr.main.Robot;
+import edu.nr.main.RobotMap;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 /**
  *
  */
@@ -26,6 +28,8 @@ public class  ArticulatingUndeployCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+                RobotMap.articulatingArmDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -27,6 +27,15 @@ public class  CompressorIdleCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(Robot.pneumaticsCompressor.pressureIsFull())
+        {
+                Robot.pneumaticsCompressor.setCompressor(false);
+        }
+        else
+        {
+                if(Robot.pneumaticsCompressor.getAutomatic())
+                        Robot.pneumaticsCompressor.setCompressor(true);
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

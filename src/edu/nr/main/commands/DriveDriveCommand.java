@@ -8,13 +8,22 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 package edu.nr.main.commands;
+import edu.nr.main.GamePad;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.nr.main.Robot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
 public class  DriveDriveCommand extends Command {
+    private float snapx;
+    private float snapy;
+    private float snapz;
+    
+    public double lastExecuteTime;
+
     public DriveDriveCommand() {
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -27,6 +36,62 @@ public class  DriveDriveCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(Robot.oi.getPadRawAxis(GamePad.kDPadXAxis)  > 0)
+        {
+                Robot.drive.driveMecanum(-0.2f, 0, 0);
+        }
+        else if(Robot.oi.getPadRawAxis(GamePad.kDPadXAxis) < 0)
+        {
+                Robot.drive.driveMecanum(0.2f, 0, 0);
+        }
+        else if(Robot.oi.getPadRawAxis(GamePad.kDPadYAxis)  > 0)
+        {
+                Robot.drive.driveMecanum(0, 0.2f, 0);
+        }
+        else if(Robot.oi.getPadRawAxis(GamePad.kDPadYAxis)  < 0)
+        {
+                Robot.drive.driveMecanum(0, -0.2f, 0);
+        }
+        else
+        {        
+                /***********
+                 * FIXME Some of the axes are reversed!
+                 ***********/
+                //SNAP X
+                if(Robot.oi.getPadRawAxis(GamePad.kLeftXAxis) < 0.08 && Robot.oi.getPadRawAxis(GamePad.kLeftXAxis) > -0.08)
+                        snapx = 0;
+                else
+                        snapx = Robot.oi.getPadRawAxis(GamePad.kLeftXAxis);
+                //SNAP Y
+                if(Robot.oi.getPadRawAxis(GamePad.kLeftYAxis) < 0.08 && Robot.oi.getPadRawAxis(GamePad.kLeftYAxis) > -0.08)
+                        snapy = 0;
+                else
+                        snapy = -Robot.oi.getPadRawAxis(GamePad.kLeftYAxis);
+                //SNAP Z
+                if(Robot.oi.getPadRawAxis(GamePad.kRightXAxis) < 0.08 && Robot.oi.getPadRawAxis(GamePad.kRightXAxis) > -0.08)
+                        snapz = 0;
+                else
+                        snapz = -Robot.oi.getPadRawAxis(GamePad.kRightXAxis);
+                
+                //Cut the rotation speed in half (because it is way too fast as it is)
+                snapz /= 2;
+                
+                snapx *= 0.65;
+                snapy *= 0.65;
+                
+                //Cut down all the speeds if the right bumper is being held (for fine alignment)
+                if(Robot.oi.getPadButton(GamePad.kRightBumper))
+                {
+                        snapx /= 2;
+                        snapy /= 2;
+                        snapz /= 2;
+                }
+                SmartDashboard.putNumber("Snapx", snapx);
+                SmartDashboard.putNumber("Snapy", snapy);
+                SmartDashboard.putNumber("Snapz", snapz);
+                
+                Robot.drive.driveMecanum(snapx, snapy, snapz);
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
