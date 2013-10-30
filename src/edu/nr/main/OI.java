@@ -8,7 +8,7 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in th future.
 package edu.nr.main;
-import edu.nr.main.commands.ArticulatingunextendCommand;
+import edu.nr.main.commands.ArticulatingDetractCommand;
 import edu.nr.main.commands.CompressorStartCommand;
 import edu.nr.main.commands.DriveBrakeCommand;
 import edu.nr.main.commands.TrackDriveSpeedCommand;
@@ -108,7 +108,7 @@ public class OI
         SmartDashboard.putData("Track Undeploy Brake Command", new TrackUndeployBrakeCommand());
         SmartDashboard.putData("Shooter Run Command", new ShooterRunCommand());
         SmartDashboard.putData("Articulating Extend Command", new ArticulatingExtendCommand());
-        SmartDashboard.putData("Articulating unextend Command", new ArticulatingunextendCommand());
+        SmartDashboard.putData("Articulating unextend Command", new ArticulatingDetractCommand());
         SmartDashboard.putData("Cancel All Command", new CancelAllCommand());
         SmartDashboard.putData("FixedDeployCommand", new FixedDeployCommand());
         SmartDashboard.putData("FixedundeployCommand", new FixedundeployCommand());
