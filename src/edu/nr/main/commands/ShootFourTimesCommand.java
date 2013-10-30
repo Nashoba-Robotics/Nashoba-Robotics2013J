@@ -11,6 +11,7 @@
 
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 /**
  *
@@ -18,6 +19,21 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ShootFourTimesCommand extends CommandGroup {
     
     public  ShootFourTimesCommand() {
+        addSequential(new ShooterRunCommand());
+        addSequential(new WaitCommand(4));
+        
+        addSequential(new ShooterLoadCommand());
+        addSequential(new WaitCommand(3));
+        
+        addSequential(new ShooterLoadCommand());
+        addSequential(new WaitCommand(3));
+        
+        addSequential(new ShooterLoadCommand());
+        addSequential(new WaitCommand(3));
+        
+        addSequential(new ShooterLoadCommand());
+        
+        addSequential(new ShooterStopCommand());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

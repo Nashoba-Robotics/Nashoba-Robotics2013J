@@ -14,7 +14,13 @@ import edu.nr.main.Robot;
  *
  */
 public class  DriveDirectionCommand extends Command {
-    public DriveDirectionCommand() {
+    private final float m_x;
+    private final float m_y;
+    private final float m_time;
+    public DriveDirectionCommand(float x, float y, float time) {
+        m_x = x;
+        m_y = y;
+        m_time = time;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -27,16 +33,23 @@ public class  DriveDirectionCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.drive.driveMecanum(m_x, m_y, 0);
+
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (timeSinceInitialized() >= m_time);
+
     }
     // Called once after isFinished returns true
     protected void end() {
+        Robot.drive.driveMecanum(0,0,0);
+
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        Robot.drive.driveMecanum(0,0,0);
+
     }
 }

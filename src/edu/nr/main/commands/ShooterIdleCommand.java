@@ -10,6 +10,7 @@
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.nr.main.Robot;
+import edu.nr.main.XPad;
 /**
  *
  */
@@ -27,6 +28,15 @@ public class  ShooterIdleCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        Robot.shooter.maintainSpeed();
+        if(Robot.oi.getXPadRawAxis(XPad.kDPadXAxis) == -1)
+        {
+                Robot.shooter.deployLoader();
+        }
+        else if(Robot.oi.getXPadRawAxis(XPad.kDPadXAxis) == 1)
+        {
+                Robot.shooter.undeployLoader();
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

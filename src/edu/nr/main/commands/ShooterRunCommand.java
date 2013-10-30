@@ -15,16 +15,10 @@ import edu.nr.main.Robot;
  */
 public class  ShooterRunCommand extends Command 
 {
-    private float speed;
     //Empty private constructor so classes cannot create this class without specifying a speed
-    private ShooterRunCommand()
+    public ShooterRunCommand() 
     {
-        
-    }
-    public ShooterRunCommand(float speed) 
-    {
-        super("ShooterRuCommand");
-        this.speed = speed;
+        super("ShooterRunCommand");
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -38,11 +32,11 @@ public class  ShooterRunCommand extends Command
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-        Robot.shooter.setSpeed(speed);
+        Robot.shooter.setSpeed(0.65);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {

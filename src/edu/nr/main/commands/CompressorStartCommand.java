@@ -27,10 +27,14 @@ public class  CompressorStartCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if(!(Robot.pneumaticsCompressor.pressureIsFull()))
+        {
+                Robot.pneumaticsCompressor.setCompressor(true);
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
