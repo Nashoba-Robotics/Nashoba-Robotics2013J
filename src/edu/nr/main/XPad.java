@@ -14,26 +14,26 @@ public class XPad extends Joystick {
     }
     
     public static final int kLeftStick = 1;
-    public final int kRightStick = 2;
+    public static final int kRightStick = 2;
     
-    public final int kLeftXAxis = 1;
-    public final int kLeftYAxis = 2;
-    public final int kTriggerAxis = 3;
-    public final int kRightXAxis = 4;
-    public final int kRightYAxis = 5;
-    public final int kDPadXAxis = 6;
-    public final int kDPadYAxis = 7;
+    public static final int kLeftXAxis = 1;
+    public static final int kLeftYAxis = 2;
+    public static final int kTriggerAxis = 3;
+    public static final int kRightXAxis = 4;
+    public static final int kRightYAxis = 5;
+    public static final int kDPadXAxis = 6;
+    public static final int kDPadYAxis = 7;
            
-    public final int kAButton = 1;
-    public final int kBButton = 2;
-    public final int kXButton = 3;
-    public final int kYButton = 4;
-    public final int kLeftBumper = 5;
-    public final int kRightBumper = 6;
-    public final int kBackButton = 7;
-    public final int kStartButton = 8;
-    public final int kLeftStickButton = 9;
-    public final int kRightStickButton = 10;
+    public static final int kAButton = 1;
+    public static final int kBButton = 2;
+    public static final int kXButton = 3;
+    public static final int kYButton = 4;
+    public static final int kLeftBumper = 5;
+    public static final int kRightBumper = 6;
+    public static final int kBackButton = 7;
+    public static final int kStartButton = 8;
+    public static final int kLeftStickButton = 9;
+    public static final int kRightStickButton = 10;
     
     /**
      * Get the x axis value from the desired joystick on the gamepad
