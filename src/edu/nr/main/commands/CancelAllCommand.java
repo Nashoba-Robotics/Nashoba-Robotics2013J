@@ -9,7 +9,6 @@
 // it from being updated in th future.
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.nr.main.Robot;
 /**
  *
  */
@@ -29,7 +28,7 @@ public class  CancelAllCommand extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
     // Called once after isFinished returns true
     protected void end() {

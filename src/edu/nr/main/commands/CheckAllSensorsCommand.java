@@ -9,7 +9,6 @@
 // it from being updated in th future.
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.nr.main.Robot;
 /**
  *
  */
