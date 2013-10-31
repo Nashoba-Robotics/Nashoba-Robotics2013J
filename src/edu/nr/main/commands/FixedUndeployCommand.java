@@ -15,8 +15,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 /**
  *
  */
-public class  FixedundeployCommand extends Command {
-    public FixedundeployCommand() {
+public class  FixedUndeployCommand extends Command {
+    public FixedUndeployCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 	
@@ -29,7 +29,7 @@ public class  FixedundeployCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.articulatingArmDoubleSolenoid1.set(DoubleSolenoid.Value.kReverse);
+        RobotMap.articulatingArmSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

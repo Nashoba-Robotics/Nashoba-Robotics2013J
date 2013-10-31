@@ -29,7 +29,7 @@ public class  ArticulatingDeployCommand extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.articulatingArmDoubleSolenoid1.set(DoubleSolenoid.Value.kForward);
+        RobotMap.articulatingArmSolenoid.set(DoubleSolenoid.Value.kForward);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

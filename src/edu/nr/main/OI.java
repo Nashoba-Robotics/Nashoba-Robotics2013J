@@ -25,7 +25,7 @@ import edu.nr.main.commands.FixedDeployCommand;
 import edu.nr.main.commands.TippingUndeployCommand;
 import edu.nr.main.commands.ArticulatingDeployCommand;
 import edu.nr.main.commands.ShooterIdleCommand;
-import edu.nr.main.commands.FixedundeployCommand;
+import edu.nr.main.commands.FixedUndeployCommand;
 import edu.nr.main.commands.TrackUndeployBrakeCommand;
 import edu.nr.main.commands.ShooterStopCommand;
 import edu.nr.main.commands.CompressorStopCommand;
@@ -111,7 +111,7 @@ public class OI
         SmartDashboard.putData("Articulating unextend Command", new ArticulatingDetractCommand());
         SmartDashboard.putData("Cancel All Command", new CancelAllCommand());
         SmartDashboard.putData("FixedDeployCommand", new FixedDeployCommand());
-        SmartDashboard.putData("FixedundeployCommand", new FixedundeployCommand());
+        SmartDashboard.putData("FixedundeployCommand", new FixedUndeployCommand());
         SmartDashboard.putData("FixedIdleCommand", new FixedIdleCommand());
         SmartDashboard.putData("ArticulatingDeployCommand", new ArticulatingDeployCommand());
         SmartDashboard.putData("ArticulatingUndeployCommand", new ArticulatingUndeployCommand());

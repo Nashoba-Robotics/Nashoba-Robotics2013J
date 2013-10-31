@@ -30,7 +30,7 @@ public class  ArticulatingDetractCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            RobotMap.articulatingArmArticulatingCANJaguar.setX(-0.2);
+            RobotMap.articulatingArmJag.setX(-0.2);
         } catch (CANTimeoutException e) {
             System.out.println("Can't actuate articulating arm jag: " 
                                                            + e.getMessage());

@@ -30,7 +30,7 @@ public class  ArticulatingIdleCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         try {
-            RobotMap.articulatingArmArticulatingCANJaguar.setX(0);
+            RobotMap.articulatingArmJag.setX(0);
         } catch (CANTimeoutException e) {
             System.out.println("Can't stop articulating arm jag: " 
                                                         +e.getMessage());
