@@ -1,8 +1,8 @@
 Version 0.0.2
 
 ---
-Name: Nashoba-Robotics2013
-Base: Robot
+Name: Nashoba-robotics2013
+Base: robot
 Children:
 - Name: Subsystems
   Base: Subsystems
@@ -10,8 +10,8 @@ Children:
   - Name: Drive
     Base: Subsystem
     Children:
-    - Name: Robot Drive 4 1
-      Base: Robot Drive 4
+    - Name: robot Drive 4 1
+      Base: robot Drive 4
       Children:
       - Name: CAN Jaguar 1
         Base: CAN Jaguar
@@ -67,7 +67,7 @@ Children:
           default: 2
           name: Right Front Motor
           type: PIDOutput
-          validators: [RobotDrive4, ChildDropdownSelected]
+          validators: [robotDrive4, ChildDropdownSelected]
           value: Drive CAN Jaguar 3
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
@@ -79,19 +79,19 @@ Children:
           default: 3
           name: Right Rear Motor
           type: PIDOutput
-          validators: [RobotDrive4, ChildDropdownSelected]
+          validators: [robotDrive4, ChildDropdownSelected]
           value: Drive CAN Jaguar 4
         Left Rear Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 1
           name: Left Rear Motor
           type: PIDOutput
-          validators: [RobotDrive4, ChildDropdownSelected]
+          validators: [robotDrive4, ChildDropdownSelected]
           value: Drive CAN Jaguar 2
         Left Front Motor: !!robotbuilder.data.properties.ChildSelectionProperty
           default: 0
           name: Left Front Motor
           type: PIDOutput
-          validators: [RobotDrive4, ChildDropdownSelected]
+          validators: [robotDrive4, ChildDropdownSelected]
           value: Drive CAN Jaguar 1
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
@@ -666,7 +666,7 @@ Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
   Wiring File: !!robotbuilder.data.properties.FileProperty {default: '', extension: html,
-    folder: false, name: Wiring File, validators: null, value: 'C:\Users\Robotics\Documents\robowiring.html'}
+    folder: false, name: Wiring File, validators: null, value: 'C:\Users\robotics\Documents\robowiring.html'}
   C++ Windriver Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Windriver\workspace',
     extension: null, folder: true, name: C++ Windriver Workspace, validators: null,
     value: 'C:\Windriver\workspace'}
