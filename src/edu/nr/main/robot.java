@@ -29,8 +29,7 @@ import java.lang.Math;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class robot extends IterativeRobot 
-{
+public class robot extends IterativeRobot {
     private int dashboardCounter = 0;
     Command autonomousCommand;
     public static oi oi;
@@ -130,12 +129,11 @@ public class robot extends IterativeRobot
     /**
      * This function is called periodically during autonomous
      */
-    public void autonomousPeriodic() 
-    {
+    public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
-    public void teleopInit() 
-    {
+    
+    public void teleopInit() {
         
 	// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
@@ -146,12 +144,11 @@ public class robot extends IterativeRobot
     /**
      * This function is called periodically during operator control
      */
-    public void teleopPeriodic() 
-    {
+    public void teleopPeriodic() {
         dashboardCounter++;
 	double timesPerSecond = 5.0;
 
-	timesPerSecond = SmartDashboard.getNumber("SD Times Per Second");
+	timesPerSecond = SmartDashboard.getNumber("SD Update Frequency");
 
 	if(timesPerSecond < 0)
 	{
@@ -174,15 +171,8 @@ public class robot extends IterativeRobot
             SmartDashboard.putData(robot.tipping);
             SmartDashboard.putData(robot.articulatingArm);
             SmartDashboard.putData(robot.compressor);
-            pid_loop_vals_find();
 	}
         Scheduler.getInstance().run();
-    }
-    /**
-     * This function called periodically during test mode
-     */
-    public void testPeriodic() 
-    {
-        
+        pid_loop_vals_find();
     }
 }
