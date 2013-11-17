@@ -10,8 +10,6 @@
 package edu.nr.main.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.nr.main.robot;
-import edu.nr.main.RobotMap;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
 /**
  *
  */
