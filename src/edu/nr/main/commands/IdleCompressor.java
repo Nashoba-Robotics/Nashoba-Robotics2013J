@@ -26,7 +26,8 @@ public class  IdleCompressor extends Command {
     protected void initialize() {
     }
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute() 
+    {
         if(RobotMain.compressor.isPressureFull())
         {
             RobotMain.compressor.setCompressor(false);

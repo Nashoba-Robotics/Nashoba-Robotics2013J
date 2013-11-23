@@ -17,7 +17,7 @@ public class Arduino extends SensorBase{
         }
     }
     
-    double getForce(int sensor) {
+    public double getForce() {
         Integer raw_force = new Integer(0);
         final int count = 7;
         if(m_i2c != null) {

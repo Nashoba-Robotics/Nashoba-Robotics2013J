@@ -22,6 +22,7 @@ public class XPad extends Joystick {
     public static final int kRightXAxis = 4;
     public static final int kRightYAxis = 5;
     public static final int kDPadXAxis = 6;
+    
     public static final int kDPadYAxis = 7;
            
     public static final int kAButton = 1;

@@ -47,7 +47,8 @@ public class Compressor extends Subsystem
     
     public void setCompressor(boolean value)
     {
-        if(value) {
+        if(value) 
+        {
             relay.set(Relay.Value.kOn);
         }    
         else {
@@ -58,5 +59,11 @@ public class Compressor extends Subsystem
     public boolean isPressureFull()
     {
 	return limiter.get();
+    }
+    
+    public void toggle()
+    {
+        if(!automatic)
+            setCompressor((relay.get() == Relay.Value.kOn)?(false):(true));
     }
 }

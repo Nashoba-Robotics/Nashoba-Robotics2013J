@@ -62,4 +62,18 @@ public class Shooter extends Subsystem
     public void maintainSpeed() {
         setSpeed(m_speed);
     }
+    
+    public void bumpSpeed(boolean posotively)
+    {
+        if(posotively)
+        {
+            if(m_speed + 0.05 >= 1.0)
+                m_speed += 0.05;
+        }
+        else
+        {
+            if(m_speed-0.05 >= 0)
+                m_speed -= 0.05;
+        }
+    }
 }

@@ -9,7 +9,8 @@ import edu.wpi.first.wpilibj.Joystick;
  * controller
  */
 public class Gamepad extends Joystick {
-    Gamepad(int port) {
+    Gamepad(int port) 
+    {
         super(port);
     }
     
